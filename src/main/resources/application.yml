@@ -32,7 +32,6 @@ spring:
 
 # Kafka integration toggle
 
-
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
@@ -44,15 +43,17 @@ spring:
         spring:
           json:
             trusted:
-              packages: com.axlero.orderflow.*
+              packages: "com.rest.*"
             value:
               default:
-                type: com.axlero.orderflow.helper.TradeEvent
-
+                type: com.rest.dtos.TradeEvent
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+app:
+  kafka:
+    enabled: true
 
 jwt:
   secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970

@@ -19,6 +19,7 @@ public class Role {
 
 
     @Id
+    @Builder.Default
     private String roleId = UUID.randomUUID().toString();
 
     private String roleName;
