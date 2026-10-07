@@ -16,7 +16,6 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 @RestController
-@CrossOrigin(origins = "*")
 public class MarketDataController {
     private final OrderEventHandler orderEventHandler;
     private final SecureOrderPublisher publisher;

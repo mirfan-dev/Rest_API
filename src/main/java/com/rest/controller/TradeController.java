@@ -13,7 +13,6 @@ import java.util.Collections;
 import java.util.List;
 @RestController
 @RequestMapping("/api/trades")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class TradeController {
     private final OrderPersistenceService orderPersistenceService;

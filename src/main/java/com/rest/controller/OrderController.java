@@ -19,7 +19,6 @@ import java.util.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class OrderController {
     private final SecureOrderPublisher publisher;

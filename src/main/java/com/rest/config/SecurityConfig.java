@@ -42,16 +42,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/auth/**",
-                                "/ws/**",
-                                "/api/orderbook/**",
-                                "/api/marketdata/**",
-                                "/api/trades/**",
-                                "/api/orders/**",
-                                "/api/customers/**",
-                                "/"
-                        ).permitAll()
+                        .requestMatchers(AppConstant.PUBLIC_URLS).permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e

@@ -1,0 +1,65 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:mysql.railway.internal}:${MYSQL_PORT:3306}/railway
+    username: root
+    password: QTMbTZpxrBlkjEjGosUUpKFrcSgPVuQC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mirfan916152@gmail.com
+    password: xbsn ficl coye cooy
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  # Kafka integration toggle
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: order-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "com.rest.*"
+            value:
+              default:
+                type: com.rest.dtos.TradeEvent
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+app:
+  kafka:
+    enabled: true
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration:
+    access: 900000
+    refresh: 86400000
+
+
+
+
