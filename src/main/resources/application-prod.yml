@@ -2,6 +2,8 @@
 spring:
   datasource:
     url: ${MYSQL_RAILWAY_PUBLIC_URL}
+    username: ${MYSQLUSER}
+    password: ${MYSQL_ROOT_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
